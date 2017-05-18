@@ -3,8 +3,7 @@
 var Client = require('azure-iothub').Client;
 var Message = require('azure-iot-common').Message;
 
-//var connectionString = 'HostName=KumarHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=X+MOuzcG09Hq15HSnHujlmHeiQNmauxf6WPlHPstqWY=';
-var connectionString = 'HostName=marsiotphl.azure-devices.net;SharedAccessKeyName=coffeeclient;SharedAccessKey=MIj+k5Q8CdX+dtdfMNGqdtOGoia90mEQmE9Jqd8OdVo=';
+var connectionString = 'HostName=KumarHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=X+MOuzcG09Hq15HSnHujlmHeiQNmauxf6WPlHPstqWY=';
 
 var targetDevice = 'coffeepot';
 
@@ -30,7 +29,7 @@ serviceClient.open(function (err) {
   } else {
     console.log('Service client connected');
     serviceClient.getFeedbackReceiver(receiveFeedback);
-    var message = new Message({"Command":"ping", "Team": "team12", "Parameters":"Hello"});
+    var message = new Message("Hello");
     message.ack = 'full';
     message.messageId = "My Message ID";
     console.log('Sending message: ' + message.getData());
