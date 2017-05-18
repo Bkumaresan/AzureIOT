@@ -5,7 +5,7 @@ var Message = require('azure-iot-common').Message;
 
 var connectionString = 'HostName=KumarHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=X+MOuzcG09Hq15HSnHujlmHeiQNmauxf6WPlHPstqWY=';
 
-var targetDevice = 'coffeepot';
+var targetDevice = 'MyFirstNodeDevice';
 
 var serviceClient = Client.fromConnectionString(connectionString);
 
@@ -29,7 +29,8 @@ serviceClient.open(function (err) {
   } else {
     console.log('Service client connected');
     serviceClient.getFeedbackReceiver(receiveFeedback);
-    var message = new Message("Hello");
+    //var data = JSON.stringify({deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
+    var message = new Message("This is my first test");
     message.ack = 'full';
     message.messageId = "My Message ID";
     console.log('Sending message: ' + message.getData());
